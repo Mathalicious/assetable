@@ -6,7 +6,7 @@
     </div>
     <%= simple_form_for([:assetable, asset], url: assetable_asset_path(asset, asset_type: asset.type), remote: true, html: {class: "form-edit-asset"}) do |f| %>
       <div class="uk-modal-body">
-        <%= f.input :name %>
+        <%= f.input :name, label: "Display Name" %>
         <%= f.input :filename unless f.object.filename.present? %>
         <%= f.input :body %>
         <%= f.input :width %>
