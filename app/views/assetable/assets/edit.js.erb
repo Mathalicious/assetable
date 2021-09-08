@@ -1,1 +1,2 @@
-$('<%= j render partial: 'form', locals: {asset: @asset} %>').modal();
+const modal = $("<%= j render partial: 'edit_form', locals: {asset: @asset} %>");
+UIkit.modal(modal).show();
