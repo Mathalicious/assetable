@@ -8,7 +8,7 @@
       - if asset.image?
         = image_tag asset.filename.preview.to_s, class: "uploader-preview"
       - elsif asset.document?
-        = image_tag "assetable/icons/icon-#{asset.extension}.png", class: "uploader-preview"
+        = image_tag "assetable/icons/icon-#{asset.extension.slice(0, 3)}.png", class: "uploader-preview"
       - elsif asset.video?
         = image_tag "assetable/icons/icon-mp4.png", class: "uploader-preview"
       - elsif asset.external_service?

@@ -46,7 +46,6 @@ class Asset < ActiveRecord::Base
     self.type == "ExternalService"
   end
 
-
   # File meta and helpers
   # ---------------------------------------------------------------------
 
