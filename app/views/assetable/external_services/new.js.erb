@@ -1,1 +1,8 @@
-$('<%= j render partial: 'form', locals: {external_service: @external_service, fieldname: @fieldname, uploader_id: @uploader_id} %>').modal();
+const modal = $('#external-service-modal');
+
+if (modal.length) {
+  modal.remove();
+}
+
+$('body').append('<%= j render partial: 'form', locals: {external_service: @external_service, fieldname: @fieldname, uploader_id: @uploader_id} %>');
+UIkit.modal('#external-service-modal').show();
