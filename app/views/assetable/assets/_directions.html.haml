@@ -2,10 +2,10 @@
   .uploader-directions-image
   .uploader-directions-copy
     = link_to "select file", "#", class: "browse-btn"
-    or
-    - if directions.present?
-      = directions
-    - else
+    -# or
+    -# - if directions.present?
+    -#   = directions
+    -# - else
       =# link_to "add a third party service", Rails.application.routes.url_helpers.new_assetable_external_service_path, class: "btn-third-party", remote: true
 
     / or
