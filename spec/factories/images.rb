@@ -1,10 +1,19 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :image do
-    filename Rack::Test::UploadedFile.new(Rails.root.join("spec/files/test.jpg"), 'image/jpeg')
+    filename do
+      Rack::Test::UploadedFile.new(
+        Assetable::Engine.root.join('spec', 'fixtures', 'files', 'test.jpg'),
+        'image/jpeg')
+    end
   end
 
   factory :image_web, class: Image do
-    name "File Name"
-    file Rack::Test::UploadedFile.new(Rails.root.join("spec/files/test.jpg"), 'image/jpeg')
+    name { "File Name" }
+    file do
+      Rack::Test::UploadedFile.new(
+        Assetable::Engine.root.join('spec', 'fixtures', 'files', 'test.jpg'),
+        'image/jpeg'
+      )
+    end
   end
 end

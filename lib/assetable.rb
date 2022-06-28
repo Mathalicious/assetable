@@ -7,6 +7,7 @@ require "simple_form"
 require "haml-rails"
 require "sass-rails"
 require "jquery-rails"
+require "responders"
 
 require "assetable/engine"
 require "assetable/config"
