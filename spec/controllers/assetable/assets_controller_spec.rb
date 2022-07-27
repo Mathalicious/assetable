@@ -9,7 +9,7 @@ describe Assetable::AssetsController, type: :controller do
       it "should respond with JS" do
         @image = FactoryBot.attributes_for(:image_web)
         post :create, params: @image, xhr: true
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       context "uploading a document" do
@@ -19,7 +19,7 @@ describe Assetable::AssetsController, type: :controller do
         
         it "should respond with success" do
           post :create, params: @document, xhr: true
-          expect(response).to be_success
+          expect(response).to be_successful
         end
       end
     end
