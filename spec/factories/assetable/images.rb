@@ -1,17 +1,15 @@
 FactoryBot.define do
-  factory :asset do
-    name { "file name" }
+  factory :image, class: Assetable::Image do
     filename do
       Rack::Test::UploadedFile.new(
         Assetable::Engine.root.join('spec', 'fixtures', 'files', 'test.jpg'),
-        'image/jpeg'
-      )
+        'image/jpeg')
     end
   end
 
-  factory :asset_web, class: Image do
+  factory :image_web, class: Assetable::Image do
     name { "File Name" }
-    filename do
+    file do
       Rack::Test::UploadedFile.new(
         Assetable::Engine.root.join('spec', 'fixtures', 'files', 'test.jpg'),
         'image/jpeg'

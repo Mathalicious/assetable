@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Gallery do
+describe Assetable::Gallery, type: :model do
   
   it { should belong_to(:galleryable) }
   it { should have_many(:asset_attachments) }

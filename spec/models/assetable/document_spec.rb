@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Document do
+describe Assetable::Document, type: :model do
 
   context "when saved" do
     before :each do

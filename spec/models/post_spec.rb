@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Post do
+describe Post, type: :model do
 
   it { should have_one(:image_association) }
   it { should have_one(:image).through(:image_association) }

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AssetAttachment do
+describe Assetable::AssetAttachment, type: :model do
 
   it { should belong_to(:assetable) }
   it { should belong_to(:asset) }

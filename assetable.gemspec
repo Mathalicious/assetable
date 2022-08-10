@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "thor", '~> 1.2'
   s.add_development_dependency "rspec-rails"
-  s.add_development_dependency "shoulda-matchers", "~> 2.5"
+  s.add_development_dependency "shoulda-matchers"
   s.add_development_dependency "factory_bot_rails", "~> 4.3"
   s.add_development_dependency "guard-rspec", "~> 4.7"
   s.add_development_dependency "guard-spork", "~> 2.1"

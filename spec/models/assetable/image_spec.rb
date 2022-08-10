@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Image do
+describe Assetable::Image, type: :model do
 
   context "when saved" do
     before :each do
