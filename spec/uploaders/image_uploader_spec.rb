@@ -1,8 +1,8 @@
-describe ImageUploader do
+describe Assetable::ImageUploader do
 
   context 'an image uploader' do
     before :all do
-      @uploader = ImageUploader.new
+      @uploader = Assetable::ImageUploader.new
     end
 
     it 'should upload the image' do
@@ -12,7 +12,7 @@ describe ImageUploader do
     
     it 'should create a version of the image for each version of the file' do
       @uploader.store!(File.open(File.expand_path("spec/fixtures/files/test.jpg")))
-      expect(@uploader.versions.length).to eq(ImageUploader.versions.keys.length)
+      expect(@uploader.versions.length).to eq(Assetable::ImageUploader.versions.keys.length)
     end
   end
 

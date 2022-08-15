@@ -3,7 +3,7 @@ module Assetable
     respond_to :html, :js
 
     def index
-      @assets = Asset.page(params[:page]).per(20)
+      @assets = Assetable::Asset.page(params[:page]).per(20)
       @fieldname = params[:fieldname]
       @uploader_id = params[:uploader_id]
     end
@@ -12,22 +12,22 @@ module Assetable
     def insert
       @fieldname = params[:fieldname]
       @uploader_id = params[:uploader_id]
-      @assets = Asset.find(params[:asset_ids])
+      @assets = Assetable::Asset.find(params[:asset_ids])
     end
 
     # Create a new asset
     def create
       # Get the content type
       content_type = params[:file].content_type
-      asset_params = {name: params[:file].original_filename, filename: params[:file]}
+      asset_params = { name: params[:file].original_filename, filename: params[:file] }
 
       # Create the appropriate model
       if content_type.split("/").first == "image"
-        @asset = Image.new(asset_params)
+        @asset = Assetable::Image.new(asset_params)
       elsif content_type.split("/").first == "video"
-        @asset = Video.new(asset_params)
+        @asset = Assetable::Video.new(asset_params)
       elsif content_type.split("/").first == "application"
-        @asset = Document.new(asset_params)
+        @asset = Assetable::Document.new(asset_params)
       end
 
       # Return
@@ -42,12 +42,12 @@ module Assetable
 
     # Edit an asset will return the edit form
     def edit
-      @asset = Asset.find(params[:id])
+      @asset = Assetable::Asset.find(params[:id])
     end
 
     # Update an asset
     def update
-      @asset = Asset.find(params[:id])
+      @asset = Assetable::Asset.find(params[:id])
       @asset.update_attributes(permitted_params)
     end
 

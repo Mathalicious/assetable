@@ -9,14 +9,14 @@ module Assetable
 
     # New template
     def new
-      @external_service = ExternalService.new
+      @external_service = Assetable::ExternalService.new
       @fieldname = params[:fieldname]
       @uploader_id = params[:uploader_id]
     end
 
     # Create a new external service asset
     def create
-      @external_service = ExternalService.new(permitted_params)
+      @external_service = Assetable::ExternalService.new(permitted_params)
 
       if @external_service.errors.empty? and @external_service.save
         @fieldname = params[:fieldname]

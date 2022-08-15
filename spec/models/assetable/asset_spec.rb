@@ -29,5 +29,4 @@ describe Assetable::Asset, type: :model do
       end
     end
   end
-
 end
