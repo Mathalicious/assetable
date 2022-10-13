@@ -67,7 +67,7 @@ class ActionView::Helpers::FormBuilder
   # Asset actions, i.e.e remove and edit buttons
   def asset_actions asset
     remove_btn = link_to "delete", "#", class: "btn-uploader btn-uploader-remove-asset"
-    edit_btn = link_to "edit", Rails.application.routes.url_helpers.edit_assetable_asset_path(asset), class: "btn-uploader btn-uploader-edit-asset", :'data-asset-id' => asset.id
+    edit_btn = link_to "edit", Assetable::Engine.routes.url_helpers.edit_asset_path(asset), class: "btn-uploader btn-uploader-edit-asset", :'data-asset-id' => asset.id
     content_tag(:div, (remove_btn + edit_btn), class: "uploader-actions")
   end
 

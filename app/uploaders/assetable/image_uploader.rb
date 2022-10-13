@@ -5,12 +5,9 @@ module Assetable
     # Include RMagick or MiniMagick support:
     include CarrierWave::RMagick
 
-    # More reliable content types
-    process :set_content_type
-
     # Add a white list of extensions which are allowed to be uploaded.
     # For images you might use something like this:
-    def extension_white_list
+    def extension_allowlist
       %w(jpg jpeg gif png)
     end
 

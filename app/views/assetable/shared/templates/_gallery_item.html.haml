@@ -23,7 +23,7 @@
 
         .uploader-actions
           = link_to "delete", "#", class: "btn-uploader btn-uploader-remove-asset"
-          = link_to "edit", Rails.application.routes.url_helpers.edit_assetable_asset_path(asset.id), class: "btn-uploader btn-uploader-edit-asset", remote: true      
+          = link_to "edit", Assetable::Engine.routes.url_helpers.edit_asset_path(asset.id), class: "btn-uploader btn-uploader-edit-asset", remote: true
   
     - if local_assigns.has_key? :fieldname
 

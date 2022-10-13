@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Assetable::AssetsController, type: :controller do
 
   render_views
+  routes { Assetable::Engine.routes }
 
   describe "POST #create" do
     context "JS" do
