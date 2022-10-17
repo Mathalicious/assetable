@@ -9,7 +9,7 @@ module Assetable
       def assetable *args
         if args.present?
           args.each do |arg|
-            has_one :"#{arg}_association", -> { where(name: arg) }, class_name: "Assetable::AssetAttachment", as: :assetable
+            has_one :"#{arg}_association", -> { where(name: arg) }, dependent: :destroy, class_name: "Assetable::AssetAttachment", as: :assetable
             has_one arg, through: :"#{arg}_association", source: :asset, class_name: "Assetable::Asset"
             accepts_nested_attributes_for :"#{arg}_association", allow_destroy: true
           end
