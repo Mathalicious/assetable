@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.errors.empty? and @post.update_attributes(permitted_params)
+    if @post.errors.empty? and @post.update(permitted_params)
       redirect_to edit_post_path(@post)
     else
       render :new

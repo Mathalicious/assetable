@@ -51,9 +51,7 @@ module Assetable
 
     # Get the file type extension from the filename
     def extension
-      filename = File.extname(self.filename.to_s)
-      filename[0] = '' # remove the dot, i.e. (.docx or .pptx)
-      filename
+      self.filename.file.extension
     end
 
     # Add some custom attributes to the asset

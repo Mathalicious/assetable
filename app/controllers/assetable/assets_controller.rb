@@ -48,12 +48,12 @@ module Assetable
     # Update an asset
     def update
       @asset = Assetable::Asset.find(params[:id])
-      @asset.update_attributes(permitted_params)
+      @asset.update(permitted_params)
     end
 
     # Permitted params for the model
     def permitted_params
-      params.require(params[:asset_type].underscore.to_sym).permit(
+      params.require(params[:asset_type].demodulize.underscore.to_sym).permit(
         :name,
         :filename,
         :body,
