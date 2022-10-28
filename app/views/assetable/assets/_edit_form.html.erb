@@ -4,7 +4,7 @@
     <div class="uk-modal-header">
       <h3 class="uk-modal-title">Asset</h3>
     </div>
-    <%= simple_form_for([:assetable, asset], url: assetable_asset_path(asset, asset_type: asset.type), remote: true, html: {class: "form-edit-asset"}) do |f| %>
+    <%= simple_form_for([:assetable, asset], url: Assetable::Engine.routes.url_helpers.asset_path(asset, asset_type: asset.type), remote: true, html: {class: "form-edit-asset"}) do |f| %>
       <div class="uk-modal-body">
         <%= f.input :name, label: "Display Name (online)", input_html: { class: "uk-input" } %>
         <div class="input">

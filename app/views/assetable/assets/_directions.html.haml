@@ -6,7 +6,7 @@
     - if directions.present?
       = directions
     - else
-      = link_to "add a third party service", Rails.application.routes.url_helpers.new_assetable_external_service_path, class: "btn-third-party", remote: true
+      = link_to "add a third party service", Assetable::Engine.routes.url_helpers.new_external_service_path, class: "btn-third-party", remote: true
 
     / or
-    / = link_to "select from gallery", Rails.application.routes.url_helpers.assetable_assets_path(fieldname: fieldname, uploader_id: id), remote: true
+    / = link_to "select from gallery", Assetable::Engine.routes.url_helpers.assets_path(fieldname: fieldname, uploader_id: id), remote: true

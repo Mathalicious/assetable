@@ -2,19 +2,19 @@
 
 require 'spec_helper'
 
-describe Post do
+describe Post, type: :model do
 
   it { should have_one(:image_association) }
   it { should have_one(:image).through(:image_association) }
   
   context "That is created with an image" do
     before :each do
-      @post = FactoryGirl.build(:post)
+      @post = FactoryBot.build(:post)
     end
 
     it "should have an image" do
-      @post.image.should_not be_nil
-      @post.image.should be_valid
+      expect(@post.image).to_not be_nil
+      expect(@post.image).to be_valid
     end
   end
 

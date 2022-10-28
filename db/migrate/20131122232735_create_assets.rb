@@ -1,6 +1,6 @@
-class CreateAssets < ActiveRecord::Migration
+class CreateAssets < ActiveRecord::Migration[4.2]
   def change
-    create_table :assets do |t|
+    create_table :assetable_assets do |t|
       t.string :type
       t.string :name
       t.text :body

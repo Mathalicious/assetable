@@ -1,30 +1,28 @@
 require 'spec_helper'
 
-describe Assetable::AssetsController do
+describe Assetable::AssetsController, type: :controller do
 
   render_views
+  routes { Assetable::Engine.routes }
 
   describe "POST #create" do
-    
     context "JS" do
       it "should respond with JS" do
-        @image = FactoryGirl.attributes_for(:image_web)
-        xhr :post, :create, @image
-        response.should be_success
+        @image = FactoryBot.attributes_for(:image_web)
+        post :create, params: @image, xhr: true
+        expect(response).to be_successful
       end
 
       context "uploading a document" do
         before :each do
-          @document = FactoryGirl.attributes_for(:document_web)
+          @document = FactoryBot.attributes_for(:document_web)
         end
         
         it "should respond with success" do
-          xhr :post, :create, @document
-          response.should be_success
+          post :create, params: @document, xhr: true
+          expect(response).to be_successful
         end
       end
     end
-    
   end
-
 end

@@ -9,8 +9,8 @@ module Assetable
       def assetable *args
         if args.present?
           args.each do |arg|
-            has_one :"#{arg}_association", -> { where(name: arg) }, class_name: "AssetAttachment", as: :assetable
-            has_one arg, through: :"#{arg}_association", source: :asset
+            has_one :"#{arg}_association", -> { where(name: arg) }, dependent: :destroy, class_name: "Assetable::AssetAttachment", as: :assetable
+            has_one arg, through: :"#{arg}_association", source: :asset, class_name: "Assetable::Asset"
             accepts_nested_attributes_for :"#{arg}_association", allow_destroy: true
           end
         end
@@ -18,15 +18,15 @@ module Assetable
 
       # Galleries
       def galleryable *args
-        # By default, let's include a gallery. 
+        # By default, let's include a gallery.
         unless args.include? :gallery
-          has_one :gallery, as: :galleryable, dependent: :destroy
+          has_one :gallery, as: :galleryable, dependent: :destroy, class_name: "Assetable::Gallery"
           accepts_nested_attributes_for :gallery
         end
-        
+
         if args.present?
           args.each do |arg|
-            has_one arg, -> { where(name: arg) }, class_name: "Gallery", as: :galleryable
+            has_one arg, -> { where(name: arg) }, class_name: "Assetable::Gallery", as: :galleryable
             accepts_nested_attributes_for arg
           end
         end
